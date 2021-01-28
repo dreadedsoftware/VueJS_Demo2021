@@ -1,0 +1,16 @@
+<div id="app">
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Number of Comics</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="comic in comics" :id="comic.id" onclick="invoke">
+        <td>{{comic.name}}</td>
+        <td>{{comic.available}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
