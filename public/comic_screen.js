@@ -1,4 +1,9 @@
 function raw(){
+  var id = window.location.pathname;
+  var idx = id.lastIndexOf('/');
+  id = id.slice(idx+1);
+  console.log(id);
+
   var _location = '/graphql';
 
   var _headers = {
@@ -7,11 +12,9 @@ function raw(){
   };
 
   var _dataMembers = `{
-    comicBooks{
-      id
-      available
-      viewable
+    comicBook(id:` + id + `){
       name
+      flavor
     }
   }`;
 
@@ -35,7 +38,8 @@ new Vue({
   created:function(){
     raw().then(r =>
       r.json().then(data => {
-        this.base_comics = data.data.comicBooks;
+        console.log(data.data);
+        this.base_comics = data.data.comicBook;
       }))
   },
   methods: {
@@ -85,8 +89,3 @@ new Vue({
     }
   }
 });
-
-invoke = (event) => {
-  var id = event.getAttribute('id');
-  window.location.href='/comic/'+id;
-}

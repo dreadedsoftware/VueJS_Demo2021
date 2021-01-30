@@ -1,22 +1,19 @@
 <div id="app" style="width:100%;">
   <table style="width:100%;">
     <colgroup>
-       <col span="1" style="width: 80%;">
-       <col span="1" style="width: 10%;">
+       <col span="1" style="width: 90%;">
        <col span="1" style="width: 10%;">
     </colgroup>
     <thead>
       <tr>
         <th @click="sort('name')" style="border-bottom:1px dotted #000;text-align:left;">Name</th>
-        <th @click="sort('available')" style="border-bottom:1px dotted #000;text-align:left;">Available</th>
-        <th @click="sort('viewable')" style="border-bottom:1px dotted #000;text-align:left;">Viewable</th>
+        <th @click="sort('flavor')" style="border-bottom:1px dotted #000;text-align:left;">Flavor</th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="comic in comics" :id="comic.id" onclick="invoke(this);">
+      <tr v-for="comic in comics">
         <td style="border-top:1px solid #cccccc">{{comic.name}}</td>
-        <td style="border-top:1px solid #cccccc">{{comic.available}}</td>
-        <td style="border-top:1px solid #cccccc">{{comic.viewable}}</td>
+        <td style="border-top:1px solid #cccccc">{{comic.flavor}}</td>
       </tr>
     </tbody>
   </table>
