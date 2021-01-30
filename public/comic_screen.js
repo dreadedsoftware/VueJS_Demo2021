@@ -74,18 +74,9 @@ new Vue({
       )
     },
     comics: function(){
-      return this.base_comics.sort((a,b) => {
-        var result = 0;
-        var direction = 0;
-
-        if(this.sortDirection === 'asc') direction = 1;
-        else if(this.sortDirection === 'desc') direction = -1;
-
-        if(a[this.sortBy] < b[this.sortBy]) result = -1;
-        else if(a[this.sortBy] > b[this.sortBy]) result = 1;
-
-        return result * direction;
-      }).slice(this.minItem - 1, this.maxItem);
+      var sorted = sorter(this.base_comics, this.sortDirection, this.sortBy);
+      var sliced = sorted.slice(this.minItem - 1, this.maxItem);
+      return colorToRow(sliced);
     }
   }
 });

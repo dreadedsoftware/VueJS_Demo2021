@@ -85,13 +85,18 @@ app.listen(3000);
 console.log('Listening on port 3000');
 
 function scripts_initial(){
-  return script("https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js") +
+  return scripts_base() +
     script("/initial_screen.js");
 }
 
 function scripts_comic(){
-  return script("https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js") +
+  return scripts_base() +
     script("/comic_screen.js");
+}
+
+function scripts_base(){
+  return script("https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js") +
+    script("/tooling.js")
 }
 
 function script(location){

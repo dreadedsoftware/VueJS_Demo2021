@@ -13,8 +13,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="comic in comics" :id="comic.id" onclick="invoke(this);">
-        <td style="border-top:1px solid #cccccc">{{comic.name}}</td>
+      <tr v-for="comic in comics" :id="comic.id" onclick="invoke(this);" :bgcolor="comic.color">
+        <td style="border-top:1px solid #cccccc">{{comic.name}} ({{comic.color}})</td>
         <td style="border-top:1px solid #cccccc">{{comic.available}}</td>
         <td style="border-top:1px solid #cccccc">{{comic.viewable}}</td>
       </tr>
