@@ -4,6 +4,7 @@ function colorToRow(xs){
     return a;
   });
 }
+exports.colorToRow = colorToRow;
 
 function sorter(xs, sortDirection, sortBy){
   return xs.sort((a,b) => {
@@ -19,3 +20,4 @@ function sorter(xs, sortDirection, sortBy){
     return result * direction;
   })
 }
+exports.sorter = sorter;
