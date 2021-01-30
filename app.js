@@ -54,9 +54,9 @@ app.use('/graphql', graphqlHTTP({
   graphiql: true,
 }));
 
-//app.get('/comic/:id', function(req, res){
-//  res.send(req.params.id);
-//});
+app.get('/comic/:id', function(req, res){
+  res.send(req.params.id);
+});
 
 app.get('*', function(req, res){
   fs.readFile("initial_screen.html", function(err, text) {

@@ -2,15 +2,20 @@
   <table>
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Number of Comics</th>
+        <th @click="sort('name')">Name</th>
+        <th @click="sort('available')">Number of Comics</th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="comic in comics" :id="comic.id" onclick="invoke">
+      <tr v-for="comic in comics" :id="comic.id" onclick="invoke(this);">
         <td>{{comic.name}}</td>
         <td>{{comic.available}}</td>
       </tr>
     </tbody>
   </table>
+  <p>Items {{minItem}} - {{maxItem}}</p>
+  <p>
+    <button @click="prevPage()">Previous</button>
+    <button @click="nextPage()">Next</button>
+  </p>
 </div>
