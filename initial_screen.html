@@ -1,21 +1,27 @@
-<div id="app">
-  <table>
+<div id="app" style="width:100%;">
+  <table style="width:100%;">
+    <colgroup>
+       <col span="1" style="width: 90%;">
+       <col span="1" style="width: 10%;">
+    </colgroup>
     <thead>
       <tr>
-        <th @click="sort('name')">Name</th>
-        <th @click="sort('available')">Number of Comics</th>
+        <th @click="sort('name')" style="border-bottom:1px dotted #000;text-align:left;">Name</th>
+        <th @click="sort('available')" style="border-bottom:1px dotted #000;text-align:left;">#</th>
       </tr>
     </thead>
     <tbody>
       <tr v-for="comic in comics" :id="comic.id" onclick="invoke(this);">
-        <td>{{comic.name}}</td>
-        <td>{{comic.available}}</td>
+        <td style="border-top:1px solid #cccccc">{{comic.name}}</td>
+        <td style="border-top:1px solid #cccccc">{{comic.available}}</td>
       </tr>
     </tbody>
   </table>
   <p>Items {{minItem}} - {{maxItem}}</p>
+  <p>Items per page:
+    <input @blur="updateLen();" type="number" id="pageLen" name="pageLen" min="1" max="50"></p>
   <p>
-    <button @click="prevPage()">Previous</button>
-    <button @click="nextPage()">Next</button>
+    <button @click="prevPage();">Previous</button>
+    <button @click="nextPage();">Next</button>
   </p>
 </div>

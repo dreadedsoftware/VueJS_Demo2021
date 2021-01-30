@@ -51,6 +51,11 @@ new Vue({
     },
     prevPage:function() {
       if(this.pageNum > 0) this.pageNum--;
+    },
+    updateLen: function(){
+      var target = document.getElementById('pageLen');
+      this.pageLen = target.value;
+      this.pageNum = 0;
     }
   },
   computed: {
