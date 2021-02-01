@@ -27,6 +27,7 @@ var schema = buildSchema(`
 `);
 
 var dataTypes = ['comics', 'series', 'stories', 'events'];
+exports.dataTypes = dataTypes;
 var jsonDb = fs.readFileSync("marvelcomics.json");
 jsonDb = JSON.parse(jsonDb);
 jsonDb = jsonDb.data.results.map(function(comicbook){
@@ -46,6 +47,7 @@ var root = {
     var comic = jsonDb.find(function(comic){
       return comic.id == args.id
     });
+    if(comic === undefined) return undefined;
 
     var comics = dataTypes.reduce((pre, cur) => {
       var newValues = comic[cur].items.map(i => {
@@ -57,6 +59,7 @@ var root = {
     return comics;
   }
 };
+exports.root = root;
 
 const hostname = '127.0.0.1';
 const port = 3000;

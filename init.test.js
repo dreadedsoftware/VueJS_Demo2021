@@ -15,6 +15,23 @@ test('html builder: script comic contains base', () => {
   expect(init.scripts_comic().startsWith(init.scripts_base())).toBe(true);
 });
 
+test('comic', () => {
+  var all = init.root.comicBooks();
+  var ids = all.map(a => a.id);
+  var idx = Math.floor(Math.random() * ids.length);
+  expect(init.root.comicBook(idx)).toBe(undefined);
+
+  var id = ids[idx];
+  var topLevel = all[idx];
+  var comic = init.root.comicBook({id:id});
+  expect(comic).not.toBe(undefined);
+
+  var supremum = topLevel.available + 1;
+  var expected = topLevel.viewable;
+  var actual = comic.length;
+  expect(supremum).toBeGreaterThan(actual);
+  expect(actual).toBe(expected);
+});
 
 function randomString(){
   var result = '';
